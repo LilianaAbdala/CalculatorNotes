@@ -7,10 +7,14 @@
 
 import UIKit
 
-struct Average {
+class Average {
     
-    var note1: String?
-    var note2: String?
-    var note3: String?
-    var note4: String?
+    var note1: Double?
+    var note2: Double?
+    var note3: Double?
+    var note4: Double?
+    
+    func calculate(_ note1: Double,_ note2: Double,_ note3: Double,_ note4: Double) -> Double {
+        return ((note1 + note2) + (note3 + note4)) / 4
+    }
 }

@@ -7,20 +7,20 @@
 
 import UIKit
 
-class MediaViewController: UIViewController {
+class ListViewController: UIViewController {
     
-    var mediaScreenView = MediaScreenView()
+    var listScreenView = ListScreenView()
     var notes: [Notes]?
 
     override func loadView() {
-        view = mediaScreenView
+        view = listScreenView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        media.collectionView.delegate = self
-        homeScreenView.collectionView.dataSource = self
+        listScreenView.collectionView.delegate = self
+        listScreenView.collectionView.dataSource = self
     }
     
     func getNotes(notes: Notes) {
@@ -28,7 +28,7 @@ class MediaViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if let count = self.notes?.count {
@@ -39,28 +39,28 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: homeScreenView.cellId, for: indexPath) as? HomeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: listScreenView.cellId, for: indexPath) as? ListCollectionViewCell
         
-        if let item = self.receita?[indexPath.item] {
-            cell?.receita = item
+        if let item = self.notes?[indexPath.item] {
+            cell?.notes = item
         }
         
         return cell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 250)
+        return CGSize(width: view.frame.width, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let bookingViewController = BookingViewController()
-        if let receita = self.receita {
-            bookingViewController.getRecipe(receita: receita[indexPath.item])
+        let detailsViewController = DetailsViewController()
+        if let notes = self.notes {
+            detailsViewController.getNotes(notes: notes[indexPath.item])
         }
-        self.navigationController?.pushViewController(bookingViewController, animated: true)
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }
-    }
+    
     
 
-}
+

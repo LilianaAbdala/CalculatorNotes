@@ -7,13 +7,13 @@
 
 import UIKit
 
-class ListTableViewCell: BaseCell {
+class ListCollectionViewCell: BaseCell {
     
     var notes: Notes? {
         didSet {
             nameTextField.text = notes?.name
             matterTextField.text = notes?.matter
-            mediaTextField.text = notes?.media
+            averageTextField.text = notes?.average
         }
     }
     
@@ -30,18 +30,17 @@ class ListTableViewCell: BaseCell {
         return label
     }()
     
-    lazy var mediaTextField: UILabel = {
+    lazy var averageTextField: UILabel = {
         let label = UILabel()
         label.text = "Média"
         return label
     }()
 
-    
     override func addSubviews() {
         backgroundColor = .systemOrange
         addSubview(nameTextField)
         addSubview(matterTextField)
-        addSubview(mediaTextField)
+        addSubview(averageTextField)
     }
     
     override func addConstraints() {
@@ -50,7 +49,7 @@ class ListTableViewCell: BaseCell {
         
         matterTextField.anchor(top: nameTextField.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
         
-        mediaTextField.anchor(top: matterTextField.bottomAnchor, leading: matterTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
+        averageTextField.anchor(top: matterTextField.bottomAnchor, leading: matterTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
         
     }
 }

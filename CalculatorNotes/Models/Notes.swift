@@ -15,4 +15,5 @@ struct Notes {
     var note2: String?
     var note3: String?
     var note4: String?
+    var average: String?
 }

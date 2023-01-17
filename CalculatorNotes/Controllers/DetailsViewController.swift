@@ -7,23 +7,23 @@
 
 import UIKit
 
-class MediaViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class DetailsViewController: UIViewController {
+    
+    let detailsScreenView = DetailsScreenView()
+    
+    override func loadView() {
+        view = detailsScreenView
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-    */
-
+    
+    func getNotes(notes: Notes) {
+        detailsScreenView.notes = notes
+        
+    }
+    
 }
+

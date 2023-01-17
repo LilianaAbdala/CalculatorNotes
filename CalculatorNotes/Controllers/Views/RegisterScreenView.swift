@@ -71,7 +71,7 @@ lazy var note4TextField: UITextField = {
 lazy var buttonRegister: UIButton = {
     let button = UIButton()
     button.setTitle("Cadastrar", for: .normal)
-    button.backgroundColor = .systemPurple
+    button.backgroundColor = .systemYellow
     button.setTitleColor(.white, for: .normal)
     button.layer.cornerRadius = 25
     return button
@@ -85,7 +85,6 @@ lazy var resultLabel: UILabel = {
     lblR.font = UIFont.systemFont(ofSize: 18)
     return lblR
 }()
-    
 
     override func addSubviews() {
         
@@ -98,7 +97,6 @@ lazy var resultLabel: UILabel = {
             addSubview(buttonRegister)
             addSubview(resultLabel)
 }
-    
     
     override func setConstraints() {
         

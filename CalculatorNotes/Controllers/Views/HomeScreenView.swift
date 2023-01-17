@@ -26,9 +26,9 @@ import UIKit
     return button
     }()
 
-    lazy var buttonMedia: UIButton = {
+    lazy var buttonAverage: UIButton = {
     let button = UIButton()
-    button.setTitle("Ver Média", for: .normal)
+    button.setTitle("Ver Lista", for: .normal)
     button.backgroundColor = .systemOrange
     button.setTitleColor(.white, for: .normal)
     button.frame = CGRect(x: 100, y: 670, width: 200, height: 50)
@@ -38,7 +38,7 @@ import UIKit
 
     override func addSubviews() {
         addSubview(buttonCadastro)
-        addSubview(buttonMedia)
+        addSubview(buttonAverage)
         addSubview(imageViewLogo)
         
 }

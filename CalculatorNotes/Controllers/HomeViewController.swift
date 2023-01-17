@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeScreenView.buttonCadastro.addTarget(self, action: #selector(navigateToRegister), for: .touchUpInside)
-        homeScreenView.buttonMedia.addTarget(self, action: #selector(navigateToMedia), for: .touchUpInside)
+        homeScreenView.buttonAverage.addTarget(self, action: #selector(navigateToAverage), for: .touchUpInside)
 
         // Do any additional setup after loading the view.
     }
@@ -29,8 +29,8 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(registerViewController, animated: true)
     }
     
-    @objc func navigateToMedia() {
-        let mediaViewController = MediaViewController()
-        self.navigationController?.pushViewController(mediaViewController, animated: true)
+    @objc func navigateToAverage() {
+        let listViewController = ListViewController()
+        self.navigationController?.pushViewController(listViewController, animated: true)
     }
 }
