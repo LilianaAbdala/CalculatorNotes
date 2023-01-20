@@ -9,58 +9,54 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    var listScreenView = ListScreenView()
-    var notes: [Notes]?
-
+    let listScreenView = ListScreenView()
+    var subjects: [Subject]?
+    
     override func loadView() {
         view = listScreenView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        listScreenView.collectionView.delegate = self
-        listScreenView.collectionView.dataSource = self
+        
+        listScreenView.tableView.delegate = self
+        listScreenView.tableView.dataSource = self
     }
     
-    func getNotes(notes: Notes) {
-        self.notes = [notes]
+    func setSubjects(subjects: [Subject]) {
+        self.subjects = subjects
     }
 }
 
-extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if let count = self.notes?.count {
+extension ListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let count = self.subjects?.count {
             return count
         }
-        return 0
+        
+        return 30
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: listScreenView.cellId, for: indexPath) as! ListTableViewCell
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: listScreenView.cellId, for: indexPath) as? ListCollectionViewCell
-        
-        if let item = self.notes?[indexPath.item] {
-            cell?.notes = item
+        if let item = self.subjects?[indexPath.item] {
+            cell.subject = item
         }
         
-        return cell ?? UICollectionViewCell()
+        return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
-    }
+   /* func tableView(_ tableView: UITableView, layout tableViewLayout: UITableViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width - 20, height: 180)
+    }*/
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectItemAt indexPath: IndexPath) {
         let detailsViewController = DetailsViewController()
-        if let notes = self.notes {
-            detailsViewController.getNotes(notes: notes[indexPath.item])
+        if let subjects = self.subjects {
+            detailsViewController.setSubject(subject: subjects[indexPath.item])
         }
         self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }
-    
-    
-
-

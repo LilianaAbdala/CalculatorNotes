@@ -9,26 +9,34 @@ import UIKit
 
 class DetailsScreenView: BaseView {
     
-    var notes: Notes? {
+    var subject: Subject? {
         didSet {
-            nameTextField.text = notes?.name
-            matterTextField.text = notes?.matter
-            note1TextField.text = notes?.note1
-            note2TextField.text = notes?.note2
-            note3TextField.text = notes?.note3
-            note4TextField.text = notes?.note4
-            
+            studentTextField.text = subject?.student
+            subjectNameTextField.text = subject?.name
+            // for note of notes
+            if let note1 = subject?.notes[0] {
+                note1TextField.text = String(note1)
+            }
+            if let note2 = subject?.notes[2] {
+                note1TextField.text = String(note2)
+            }
+            if let note3 = subject?.notes[3] {
+                note1TextField.text = String(note3)
+            }
+            if let note4 = subject?.notes[4] {
+                note1TextField.text = String(note4)
+            }
         }
     }
     
-    lazy var nameTextField: UILabel = {
+    lazy var studentTextField: UILabel = {
         let label = UILabel()
         label.text = "Nome do Aluno"
         label.font = .boldSystemFont(ofSize: 18)
         return label
     }()
-
-    lazy var matterTextField: UILabel = {
+    
+    lazy var subjectNameTextField: UILabel = {
         let label = UILabel()
         label.text = "Matéria"
         return label
@@ -60,28 +68,25 @@ class DetailsScreenView: BaseView {
     override func addSubviews() {
         backgroundColor = .white
         
-        addSubview(nameTextField)
-        addSubview(matterTextField)
+        addSubview(studentTextField)
+        addSubview(subjectNameTextField)
         addSubview(note1TextField)
         addSubview(note2TextField)
         addSubview(note3TextField)
         addSubview(note4TextField)
-
     }
     
     override func setConstraints() {
-        nameTextField.anchor(top: safeAreaLayoutGuide.topAnchor, leading: safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 100, left: 16, bottom: 0, right: 0), size: .init(width: 200, height: 40))
+        studentTextField.anchor(top: safeAreaLayoutGuide.topAnchor, leading: safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 20, left: 16, bottom: 0, right: 0), size: .init(width: 200, height: 40))
         
-        matterTextField.anchor(top: nameTextField.bottomAnchor, leading: nameTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
+        subjectNameTextField.anchor(top: studentTextField.bottomAnchor, leading: studentTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
         
-        note1TextField.anchor(top: matterTextField.bottomAnchor, leading: matterTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
+        note1TextField.anchor(top: subjectNameTextField.bottomAnchor, leading: subjectNameTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
         
         note2TextField.anchor(top: note1TextField.bottomAnchor, leading: note1TextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
         
         note3TextField.anchor(top: note2TextField.bottomAnchor, leading: note2TextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
         
         note4TextField.anchor(top: note3TextField.bottomAnchor, leading: note3TextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
-        
-        
     }
 }
