@@ -17,17 +17,18 @@ class DetailsScreenView: BaseView {
             if let note1 = subject?.notes[0] {
                 note1TextField.text = String(note1)
             }
-            if let note2 = subject?.notes[2] {
+            if let note2 = subject?.notes[1] {
                 note1TextField.text = String(note2)
             }
-            if let note3 = subject?.notes[3] {
+            if let note3 = subject?.notes[2] {
                 note1TextField.text = String(note3)
             }
-            if let note4 = subject?.notes[4] {
+            if let note4 = subject?.notes[3] {
                 note1TextField.text = String(note4)
             }
         }
     }
+    
     
     lazy var studentTextField: UILabel = {
         let label = UILabel()
@@ -66,7 +67,7 @@ class DetailsScreenView: BaseView {
         return label
     }()
     override func addSubviews() {
-        backgroundColor = .white
+        backgroundColor = UIColor.init(rgb: 0xe5e5e5)
         
         addSubview(studentTextField)
         addSubview(subjectNameTextField)

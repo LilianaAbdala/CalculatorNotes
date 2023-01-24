@@ -46,7 +46,7 @@ class RegisterScreenView: BaseView {
     lazy var buttonRegister: UIButton = {
         let button = UIButton()
         button.setTitle("Cadastrar", for: .normal)
-        button.backgroundColor = .systemYellow
+        button.backgroundColor = UIColor.init(rgb: 0xffd60a)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 25
         return button
@@ -62,7 +62,7 @@ class RegisterScreenView: BaseView {
     }()
     
     override func addSubviews() {
-        backgroundColor = UIColor.init(rgb: 0x219EBC)
+        backgroundColor = UIColor.init(rgb: 0xe5e5e5)
         addSubview(studentTextField)
         addSubview(subjectNameTextField)
         addSubview(note1TextField)

@@ -11,7 +11,7 @@ class DetailsViewController: UIViewController {
 
     let detailsScreenView = DetailsScreenView()
     
-    override func viewDidAppear(_ animated: Bool) {
+ /*  override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let gradientLayer = CAGradientLayer()
@@ -21,7 +21,7 @@ class DetailsViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 1.1, y: 1.1)
         
         view.layer.addSublayer(gradientLayer)
-    }
+    }*/
     
     override func loadView() {
         view = detailsScreenView

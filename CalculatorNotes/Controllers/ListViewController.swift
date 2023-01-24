@@ -11,9 +11,11 @@ class ListViewController: UIViewController {
     
     let listScreenView = ListScreenView()
     var subjects: [Subject]?
+    var id: Int?
     
     override func loadView() {
         view = listScreenView
+        
     }
     
     override func viewDidLoad() {
@@ -21,6 +23,7 @@ class ListViewController: UIViewController {
         
         listScreenView.tableView.delegate = self
         listScreenView.tableView.dataSource = self
+        
     }
     
     func setSubjects(subjects: [Subject]) {
@@ -48,15 +51,12 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-   /* func tableView(_ tableView: UITableView, layout tableViewLayout: UITableViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 20, height: 180)
-    }*/
-    
-    func tableView(_ tableView: UITableView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsViewController = DetailsViewController()
-        if let subjects = self.subjects {
-            detailsViewController.setSubject(subject: subjects[indexPath.item])
-        }
+        //if let subjects = self.subjects {
+        detailsViewController.setSubject(subject: (subjects?[indexPath.item])!)
         self.navigationController?.pushViewController(detailsViewController, animated: true)
+
     }
+    
 }
