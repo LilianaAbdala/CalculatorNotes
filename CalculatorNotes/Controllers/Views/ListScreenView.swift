@@ -20,7 +20,7 @@ class ListScreenView: BaseView {
     override func addSubviews() {
         backgroundColor = UIColor.init(rgb: 0xe5e5e5)
         addSubview(tableView)
-    
+        
     }
     
     override func setConstraints() {

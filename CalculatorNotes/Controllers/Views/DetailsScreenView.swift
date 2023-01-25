@@ -29,7 +29,6 @@ class DetailsScreenView: BaseView {
         }
     }
     
-    
     lazy var studentTextField: UILabel = {
         let label = UILabel()
         label.text = "Nome do Aluno"
@@ -66,9 +65,9 @@ class DetailsScreenView: BaseView {
         label.text = "Nota 4"
         return label
     }()
+    
     override func addSubviews() {
         backgroundColor = UIColor.init(rgb: 0xe5e5e5)
-        
         addSubview(studentTextField)
         addSubview(subjectNameTextField)
         addSubview(note1TextField)

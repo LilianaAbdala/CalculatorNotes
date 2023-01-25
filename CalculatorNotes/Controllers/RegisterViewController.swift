@@ -50,7 +50,7 @@ class RegisterViewController: UIViewController {
             Double(registerScreenView.note3TextField.text!) ?? 0.0,
             Double(registerScreenView.note4TextField.text!) ?? 0.0
         ]
-        // calcular média
+        
         print(subject.calculateAverage())
         
         let listViewController = ListViewController()

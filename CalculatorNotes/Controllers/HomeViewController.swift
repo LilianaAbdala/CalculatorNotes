@@ -12,7 +12,6 @@ class HomeViewController: UIViewController {
     var homeScreenView = HomeScreenView()
     var subjects: [Subject]?
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

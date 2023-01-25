@@ -47,15 +47,6 @@ class ListTableViewCell: BaseTableCell {
         return label
     }()
     
-    lazy var buttonDelete: UIButton = {
-        let button = UIButton()
-        button.setTitle("Delete", for: .normal)
-        button.backgroundColor = UIColor.init(rgb: 0xffc300)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 15
-        return button
-    }()
-    
     lazy var buttonUpdate: UIButton = {
         let button = UIButton()
         button.setTitle("Update", for: .normal)
@@ -71,13 +62,12 @@ class ListTableViewCell: BaseTableCell {
         container.addSubview(studentTextField)
         container.addSubview(subjectNameTextField)
         container.addSubview(averageTextField)
-        container.addSubview(buttonDelete)
         container.addSubview(buttonUpdate)
     }
     
     override func addConstraints() {
         
-        container.anchor(top: safeAreaLayoutGuide.topAnchor, leading: safeAreaLayoutGuide.leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 20, left: 20, bottom: 20, right: 20), size: .init(width: frame.width, height: 190))
+        container.anchor(top: safeAreaLayoutGuide.topAnchor, leading: safeAreaLayoutGuide.leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 20, left: 20, bottom: 20, right: 20), size: .init(width: frame.width, height: 150))
         
         studentTextField.anchor(top: container.topAnchor, leading: container.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: -10, left: 20, bottom: 0, right: 0), size: .init(width: 600, height: 50))
         
@@ -85,9 +75,7 @@ class ListTableViewCell: BaseTableCell {
         
         averageTextField.anchor(top: subjectNameTextField.bottomAnchor, leading: subjectNameTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 3, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 50))
         
-        buttonDelete.anchor(top: averageTextField.bottomAnchor, leading: averageTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 3, left: 50, bottom: 0, right: 0), size: .init(width: 100, height: 30))
-        
-        buttonUpdate.anchor(top: buttonDelete.bottomAnchor, leading: buttonDelete.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: -30, left: 110, bottom: 0, right: 0), size: .init(width: 100, height: 30))
+        buttonUpdate.anchor(top: averageTextField.bottomAnchor, leading: averageTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: -30, left: 110, bottom: 0, right: 0), size: .init(width: 100, height: 30))
         
     }
 }

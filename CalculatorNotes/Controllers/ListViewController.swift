@@ -10,8 +10,8 @@ import UIKit
 class ListViewController: UIViewController {
     
     let listScreenView = ListScreenView()
-    var subjects: [Subject]?
-    var id: Int?
+    let listTableViewCell = ListTableViewCell()
+    var subjects: [Subject] = []
     
     override func loadView() {
         view = listScreenView
@@ -23,7 +23,6 @@ class ListViewController: UIViewController {
         
         listScreenView.tableView.delegate = self
         listScreenView.tableView.dataSource = self
-        
     }
     
     func setSubjects(subjects: [Subject]) {
@@ -34,19 +33,13 @@ class ListViewController: UIViewController {
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = self.subjects?.count {
-            return count
-        }
+        return subjects.count
         
-        return 30
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: listScreenView.cellId, for: indexPath) as! ListTableViewCell
-        
-        if let item = self.subjects?[indexPath.item] {
-            cell.subject = item
-        }
+        cell.subject = subjects[indexPath.item]
         
         return cell
     }
@@ -54,9 +47,21 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsViewController = DetailsViewController()
         //if let subjects = self.subjects {
-        detailsViewController.setSubject(subject: (subjects?[indexPath.item])!)
+        detailsViewController.setSubject(subject: (subjects[indexPath.item]))
         self.navigationController?.pushViewController(detailsViewController, animated: true)
-
+        
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete){
+            subjects.remove(at: indexPath.item)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    func updateSubject(subject: Subject) {
+        if let index = subjects.firstIndex(where: { $0.id == subject.id }) {
+            subjects[index] = subject
+            //   defaults.synchronize()
+        }
+    }
 }
