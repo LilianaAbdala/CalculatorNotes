@@ -29,41 +29,50 @@ class DetailsScreenView: BaseView {
         }
     }
     
-    lazy var studentTextField: UILabel = {
-        let label = UILabel()
+    lazy var studentTextField: UITextField = {
+        let label = UITextField()
         label.text = "Nome do Aluno"
         label.font = .boldSystemFont(ofSize: 18)
         return label
     }()
     
-    lazy var subjectNameTextField: UILabel = {
-        let label = UILabel()
+    lazy var subjectNameTextField: UITextField = {
+        let label = UITextField()
         label.text = "Matéria"
         return label
     }()
     
-    lazy var note1TextField: UILabel = {
-        let label = UILabel()
+    lazy var note1TextField: UITextField = {
+        let label = UITextField()
         label.text = "Nota 1"
         return label
     }()
     
-    lazy var note2TextField: UILabel = {
-        let label = UILabel()
+    lazy var note2TextField: UITextField = {
+        let label = UITextField()
         label.text = "Nota 2"
         return label
     }()
     
-    lazy var note3TextField: UILabel = {
-        let label = UILabel()
+    lazy var note3TextField: UITextField = {
+        let label = UITextField()
         label.text = "Nota 3"
         return label
     }()
     
-    lazy var note4TextField: UILabel = {
-        let label = UILabel()
+    lazy var note4TextField: UITextField = {
+        let label = UITextField()
         label.text = "Nota 4"
         return label
+    }()
+    
+    lazy var buttonUpdate: UIButton = {
+        let button = UIButton()
+        button.setTitle("Update", for: .normal)
+        button.backgroundColor = UIColor.init(rgb: 0xffd60a)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 25
+        return button
     }()
     
     override func addSubviews() {
@@ -74,6 +83,7 @@ class DetailsScreenView: BaseView {
         addSubview(note2TextField)
         addSubview(note3TextField)
         addSubview(note4TextField)
+        addSubview(buttonUpdate)
     }
     
     override func setConstraints() {
@@ -88,5 +98,7 @@ class DetailsScreenView: BaseView {
         note3TextField.anchor(top: note2TextField.bottomAnchor, leading: note2TextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
         
         note4TextField.anchor(top: note3TextField.bottomAnchor, leading: note3TextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 100))
+        
+        buttonUpdate.anchor(top: note4TextField.bottomAnchor, leading: note4TextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 25, bottom: 0, right: 0), size: .init(width: 300, height: 50))
     }
 }

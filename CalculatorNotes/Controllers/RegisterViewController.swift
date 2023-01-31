@@ -10,6 +10,7 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     var registerScreenView = RegisterScreenView()
+    var subject = [Subject]()
     
     override func loadView() {
         view = registerScreenView
@@ -53,8 +54,13 @@ class RegisterViewController: UIViewController {
         
         print(subject.calculateAverage())
         
+        if let json = try? JSONEncoder().encode(self.subject) {
+                    UserDefaults.standard.set(json, forKey: "subject")
+                }
+        
         let listViewController = ListViewController()
-        listViewController.setSubjects(subjects: [subject])
+        StudentMock.studentMock.sub.append(subject)
+        listViewController.setSubjects(subjects: StudentMock.studentMock.sub)
         self.navigationController?.pushViewController(listViewController, animated: true)
     }
 }

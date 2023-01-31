@@ -10,4 +10,5 @@ import Foundation
 class Student {
     var name: String?
     var subjects: [Subject] = []
+    
 }

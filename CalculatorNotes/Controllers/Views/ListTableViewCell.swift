@@ -46,23 +46,13 @@ class ListTableViewCell: BaseTableCell {
         label.text = "Média"
         return label
     }()
-    
-    lazy var buttonUpdate: UIButton = {
-        let button = UIButton()
-        button.setTitle("Update", for: .normal)
-        button.backgroundColor = UIColor.init(rgb: 0xffc300)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 15
-        return button
-    }()
-    
+
     override func addSubviews() {
         backgroundColor =  UIColor.init(rgb: 0xe5e5e5)
         addSubview(container)
         container.addSubview(studentTextField)
         container.addSubview(subjectNameTextField)
         container.addSubview(averageTextField)
-        container.addSubview(buttonUpdate)
     }
     
     override func addConstraints() {
@@ -74,8 +64,6 @@ class ListTableViewCell: BaseTableCell {
         subjectNameTextField.anchor(top: studentTextField.bottomAnchor, leading: studentTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 50))
         
         averageTextField.anchor(top: subjectNameTextField.bottomAnchor, leading: subjectNameTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 3, left: 0, bottom: 0, right: 0), size: .init(width: 300, height: 50))
-        
-        buttonUpdate.anchor(top: averageTextField.bottomAnchor, leading: averageTextField.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: -30, left: 110, bottom: 0, right: 0), size: .init(width: 100, height: 30))
-        
+    
     }
 }

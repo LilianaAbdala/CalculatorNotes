@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditCellScreenView: BaseView {
+class UpdateCellScreenView: BaseView {
     
     var subject: Subject?
     

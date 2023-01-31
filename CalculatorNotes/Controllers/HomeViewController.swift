@@ -10,15 +10,15 @@ import UIKit
 class HomeViewController: UIViewController {
     
     var homeScreenView = HomeScreenView()
-    var subjects: [Subject]?
+    var subject: Subject?
+    
+    override func loadView(){
+        view = homeScreenView
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-    }
-    
-    override func loadView(){
-        view = homeScreenView
     }
     
     override func viewDidLoad() {
@@ -27,8 +27,8 @@ class HomeViewController: UIViewController {
         homeScreenView.buttonList.addTarget(self, action: #selector(navigateToList), for: .touchUpInside)
     }
     
-    func getSubjects(subjects: [Subject]) {
-        self.subjects = subjects
+    func getSubject(subject: Subject) {
+        self.subject = subject
     }
     
     @objc func navigateToRegister() {
@@ -37,7 +37,9 @@ class HomeViewController: UIViewController {
     }
     
     @objc func navigateToList() {
-        let listViewController = ListViewController()
-        self.navigationController?.pushViewController(listViewController, animated: true)
+        let ListViewController = ListViewController()
+            ListViewController.getSubject(subjects: subject!)
+    
+        self.navigationController?.pushViewController(ListViewController, animated: true)
     }
 }

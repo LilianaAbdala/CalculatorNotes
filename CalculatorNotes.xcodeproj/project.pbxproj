@@ -26,6 +26,9 @@
 		4D4CFB932975BC790086AAF3 /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4CFB922975BC790086AAF3 /* BaseTableCell.swift */; };
 		4DC35892297ED34B00981361 /* college.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DC35891297ED34B00981361 /* college.png */; };
 		4DC35894297EEC5300981361 /* lampada.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DC35893297EEC5300981361 /* lampada.png */; };
+		4DC358992982A76900981361 /* StudentMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC358982982A76900981361 /* StudentMock.swift */; };
+		4DC3589B2982B06B00981361 /* UpdateCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC3589A2982B06B00981361 /* UpdateCellViewController.swift */; };
+		4DC3589D2982B40500981361 /* UpdateCellScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC3589C2982B40500981361 /* UpdateCellScreenView.swift */; };
 		4DE5ED7929782092006F1645 /* UiColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE5ED7829782092006F1645 /* UiColor+Extension.swift */; };
 		4DE8EFFA297B5711006F823E /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8EFF9297B5711006F823E /* Subject.swift */; };
 		4DF990ED297B33C40085382E /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF990EC297B33C40085382E /* Student.swift */; };
@@ -53,6 +56,9 @@
 		4D4CFB922975BC790086AAF3 /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
 		4DC35891297ED34B00981361 /* college.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = college.png; sourceTree = "<group>"; };
 		4DC35893297EEC5300981361 /* lampada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lampada.png; sourceTree = "<group>"; };
+		4DC358982982A76900981361 /* StudentMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMock.swift; sourceTree = "<group>"; };
+		4DC3589A2982B06B00981361 /* UpdateCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCellViewController.swift; sourceTree = "<group>"; };
+		4DC3589C2982B40500981361 /* UpdateCellScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCellScreenView.swift; sourceTree = "<group>"; };
 		4DE5ED7829782092006F1645 /* UiColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiColor+Extension.swift"; sourceTree = "<group>"; };
 		4DE8EFF9297B5711006F823E /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		4DF990EC297B33C40085382E /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
@@ -120,6 +126,7 @@
 				4D4CFB80297578250086AAF3 /* RegisterViewController.swift */,
 				4D4CFB8429757B1E0086AAF3 /* ListViewController.swift */,
 				4D4CFB8C2975B5160086AAF3 /* DetailsViewController.swift */,
+				4DC3589A2982B06B00981361 /* UpdateCellViewController.swift */,
 				4D4CFB772971DA5B0086AAF3 /* Views */,
 			);
 			path = Controllers;
@@ -133,6 +140,7 @@
 				4D4CFB822975783D0086AAF3 /* RegisterScreenView.swift */,
 				4D4CFB902975B6010086AAF3 /* ListTableViewCell.swift */,
 				4D4CFB8629757B2D0086AAF3 /* DetailsScreenView.swift */,
+				4DC3589C2982B40500981361 /* UpdateCellScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -141,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				4DF990EC297B33C40085382E /* Student.swift */,
+				4DC358982982A76900981361 /* StudentMock.swift */,
 				4DE8EFF9297B5711006F823E /* Subject.swift */,
 			);
 			path = Models;
@@ -259,6 +268,7 @@
 				4D4CFB932975BC790086AAF3 /* BaseTableCell.swift in Sources */,
 				4D4CFB8729757B2D0086AAF3 /* DetailsScreenView.swift in Sources */,
 				4D4CFB8929757C6C0086AAF3 /* UiView+Extension.swift in Sources */,
+				4DC358992982A76900981361 /* StudentMock.swift in Sources */,
 				4DE5ED7929782092006F1645 /* UiColor+Extension.swift in Sources */,
 				4D4CFB8F2975B5340086AAF3 /* ListScreenView.swift in Sources */,
 				4DE8EFFA297B5711006F823E /* Subject.swift in Sources */,
@@ -268,6 +278,8 @@
 				4D4CFB7D2971DE2E0086AAF3 /* BaseView.swift in Sources */,
 				4DF990ED297B33C40085382E /* Student.swift in Sources */,
 				4D4CFB8D2975B5160086AAF3 /* DetailsViewController.swift in Sources */,
+				4DC3589B2982B06B00981361 /* UpdateCellViewController.swift in Sources */,
+				4DC3589D2982B40500981361 /* UpdateCellScreenView.swift in Sources */,
 				4D4CFB832975783D0086AAF3 /* RegisterScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

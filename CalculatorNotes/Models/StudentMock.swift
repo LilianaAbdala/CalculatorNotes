@@ -5,4 +5,9 @@
 //  Created by Liliana Porto Abdala on 26/01/23.
 //
 
-import Foundation
+import UIKit
+
+class StudentMock {
+    static let studentMock = StudentMock()
+    var sub: [Subject] = []
+}
